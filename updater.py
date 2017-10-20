@@ -1,10 +1,14 @@
 import rabbit
 
-(connection, channel) = rabbit.RabbitConnection.setup()
+import sys
+
+message = sys.argv[1] + ':' + sys.argv[2]
+
+(connection, channel, queue_name, _) = rabbit.RabbitConnection.setup()
 
 channel.basic_publish(exchange='',
-                      routing_key='hello',
-                      body='key:val')
-print(" [x] Sent 'Hello World!'")
+                      routing_key=queue_name,
+                      body=message)
+print(" [x] Sent '%d'", message)
 
 connection.close()
