@@ -8,7 +8,7 @@ I created two helper classes:
 - rabbit.py: which sets up messaging
 - query_runner.py: which simplifies writing queries
 
-The reset of the files are programs of the system that should be run.
+The reset of the files are programs in the system.
 
 The system arch is:
 
